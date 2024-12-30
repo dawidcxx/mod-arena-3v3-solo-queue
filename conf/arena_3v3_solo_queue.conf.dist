@@ -76,3 +76,12 @@ Solo.3v3.ArenaPointsMinLevel = 70
 Solo.3v3.VendorRating = 0
 
 Solo.3v3.ShowMessageOnLogin = 0
+
+
+#
+#    Solo.3v3.DisableUnrated
+#        Description: If true will hide the option to Queue for UnRated SoloQ Arena
+#        Default:     0 - (false)
+#                     1 - (true)
+
+Solo.3v3.DisableUnrated = 0

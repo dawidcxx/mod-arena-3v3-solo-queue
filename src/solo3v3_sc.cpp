@@ -62,7 +62,8 @@ bool NpcSolo3v3::OnGossipHello(Player* player, Creature* creature)
     if (player->InBattlegroundQueueForBattlegroundQueueType((BattlegroundQueueTypeId)BATTLEGROUND_QUEUE_3v3_SOLO))
         AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1, "|TInterface/ICONS/Achievement_Arena_2v2_7:30:30:-18:0|t Leave Solo queue", GOSSIP_SENDER_MAIN, NPC_3v3_ACTION_LEAVE_QUEUE, "Are you sure you want to remove the solo queue?", 0, false);
 
-    if (!player->InBattlegroundQueueForBattlegroundQueueType((BattlegroundQueueTypeId)BATTLEGROUND_QUEUE_3v3_SOLO))
+    bool disableUnratedSoloQ = sConfigMgr->GetOption<bool>("Solo.3v3.DisableUnrated", false);
+    if (!disableUnratedSoloQ && !player->InBattlegroundQueueForBattlegroundQueueType((BattlegroundQueueTypeId)BATTLEGROUND_QUEUE_3v3_SOLO))
         AddGossipItemFor(player, GOSSIP_ICON_INTERACT_1, "|TInterface/ICONS/Achievement_Arena_3v3_5:30:30:-18:0|t Queue 3v3soloQ (UnRated)\n", GOSSIP_SENDER_MAIN, NPC_3v3_ACTION_JOIN_QUEUE_ARENA_UNRATED);
 
     if (!player->GetArenaTeamId(ARENA_SLOT_SOLO_3v3))
